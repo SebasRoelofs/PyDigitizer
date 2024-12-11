@@ -1,8 +1,8 @@
 # PySide2
-from PySide2.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout
-from PySide2.QtWidgets import QGroupBox, QPushButton, QFileDialog
-from PySide2.QtWidgets import QRadioButton, QInputDialog, QLabel, QLineEdit
-from PySide2.QtGui import QGuiApplication
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout
+from PySide6.QtWidgets import QGroupBox, QPushButton, QFileDialog
+from PySide6.QtWidgets import QRadioButton, QInputDialog, QLabel, QLineEdit
+from PySide6.QtGui import QGuiApplication
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 import matplotlib as mpl
@@ -394,7 +394,7 @@ class MainWidget(QWidget):
         a = plt.gca()
         # delete each trace of the acquisitions
         for k in range(self.line_counter - 1, -1, -1):
-            a.lines.pop(k)
+            a.lines[k].remove()
         self.line_counter = 0
 
     def exclude_area(self):
